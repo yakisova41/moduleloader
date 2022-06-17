@@ -1,0 +1,12 @@
+{
+    "name": "yakisova41/moduleloader",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yakisova41\\ModuleLoader\\":  "src/"
+        }
+    },
+    "require": {
+        "php": ">= 7.0.0"
+    }
+}
