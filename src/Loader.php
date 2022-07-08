@@ -84,12 +84,7 @@ class Loader
                 case E_USER_ERROR:
                     echo "<br /><b>ModuleLoader Error</b>: $errstr in <b>$errfile</b> on line <b>$errline</b><br />\n";
                     break;
-                default:
-                    echo "<br /><b>ModuleLoader Unknown error</b>: $errstr in <b>$errfile</b> on line <b>$errline</b><br />\n";
-                    break;
             }
-
-            return true;
         });
     }
 }
