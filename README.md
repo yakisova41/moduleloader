@@ -3,20 +3,21 @@
 index.php
 ```php
 <?php
-use Yakisova41\ModuleLoader\Loader;
+use Yakisova41\ModuleLoader\Module;
 
-$module = Loader::import('./module.php');
+Module::import('module', 'module.php');
+Module::import('moduleAAAA', 'module.php');
 
 $module(); //=>Hello World!!
-
+$moduleAAAA(); //=>Hello World!!
 ```
 
 module.php
 ```php
 <?php
-use Yakisova41\ModuleLoader\Loader;
+use Yakisova41\ModuleLoader\Export;
 
-Loader::exportDefault(function(){
+Export::default(function(){
   echo "Hello World!!";
 });
 ```
@@ -25,25 +26,25 @@ Loader::exportDefault(function(){
 index.php
 ```php
 <?php
-use Yakisova41\ModuleLoader\Loader;
+use Yakisova41\ModuleLoader\Module;
 
-$hellomodule = Loader::import('./module.php', 'Hello');
-$byemodule = Loader::import('./module.php', 'bye');
-$onemodule = Loader::import('./module.php', 'one');
+Module::import('{Hello}', 'module.php');
+Module::import('{bye}','module.php');
+Module::import('{one}','module.php');
 
-$hellomodule(); //=>Hello World!!
-$byemodule(); //=>Seeyou goodbye
+$Hello(); //=>Hello World!!
+$bye(); //=>Seeyou goodbye
 
-echo $onemodule; //=> 1
+echo $one; //=> 1
 ```
 
 module.php
 ```php
 <?php
-use Yakisova41\ModuleLoader\Loader;
+use Yakisova41\ModuleLoader\Export;
 
 //hello
-Loader::export('Hello',function(){
+Export::export('Hello',function(){
   echo "Hello World!!";
 });
 
@@ -51,8 +52,8 @@ Loader::export('Hello',function(){
 $seeyou = function(){
   echo 'Seeyou goodbye';
 };
-Loader::export('bye',$seeyou);
+Export::export('bye',$seeyou);
 
 //one
-Loader::export('one',1);
+Export::export('one',1);
 ```
