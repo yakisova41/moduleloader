@@ -88,6 +88,8 @@ use Yakisova41\ModuleLoader\Module;
 
 $Home = Module::import(__DIR__.'/HomeModule');
 
+echo Module::style();
+
 echo $Home;
 ```
 
