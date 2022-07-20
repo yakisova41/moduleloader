@@ -11,7 +11,7 @@ class Loader
 
         if(file_exists($modulePath))
         {
-            require_once($modulePath);
+            require($modulePath);
         }
         else
         {
