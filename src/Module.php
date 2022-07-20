@@ -106,15 +106,17 @@ class Module
                 $styleStr = $styleStr.$stylePropatys."{".$styleStr;
                 $last = $last.'}';
             }
-
-            $hash = self::ramdom(15);
-            Module::$classes[$styleSelector] = $hash;
-            $styleSelector = $hash;
-
-            foreach($stylePropatys as $stylePropaty => $value)
+            else
             {
+                $hash = self::ramdom(15);
+                self::$classes[$styleSelector] = $hash;
+                $styleSelector = $hash;
+
                 $styles = "";
-                $styles = $styles.$stylePropaty.':'.$value.';';
+                foreach($stylePropatys as $stylePropaty => $value)
+                {
+                    $styles = $styles.$stylePropaty.':'.$value.';';
+                }
             }
             $styleStr = $styleStr.'.'.$styleSelector."{".$styles."}";
         }
@@ -123,7 +125,7 @@ class Module
 
         return function($className){
             
-            return Module::$classes[$className];
+            return self::$classes[$className];
         };
     }
     
