@@ -211,9 +211,9 @@ class Module
                         $mediaQuery = "@media screen";
                         foreach($style['styles'] as $name => $propaty)
                         {
-                            $mediaQuery = "$mediaQuery and($name:$propaty)";
+                            $mediaQuery = "$mediaQuery and ($name:$propaty)";
                         }
-                        self::$styles = $mediaQuery.'{'.self::$styles;
+                        self::$styles = self::$styles.$mediaQuery.'{';
                         $styleLast = $styleLast.'}';
                 }
 
