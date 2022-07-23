@@ -60,7 +60,7 @@ Module::export('one',1);
 
 ## Style import
 style.style.json
-```
+```json
 {
   ".homeContainer":{
     "margin":"10px",
@@ -70,10 +70,11 @@ style.style.json
 ```
 
 responsive-style.style.json
-```
+```json
 {
-  "media-query":"@media screen and (min-width:480px)",
-
+  "?mediaQuery!":{
+  "max-width": "480px"
+  },
   ".homeContainer":{
     "margin":"10px",
     "padding":"0px"
@@ -100,10 +101,10 @@ use Yakisova41\ModuleLoader\Module;
 
 $Home = function(){
   $style = Module::import('style');
-  $responsivestyle = Module::import('responsive-style');
+  Module::import('responsive-style');
 
   return("
-      <div class='{$style('.homeContainer')} {$responsivestyle('.homeContainer')}'>
+      <div class='{$style('.homeContainer')}'>
         //..homecontent....
       </div>
   ");
