@@ -138,7 +138,7 @@ class Module
                             self::$Names['.'.$selector['data']] = $classNameHash;
                         }
     
-                        $selectorStr = $selectorStr.".".self::$Names['.'.$selector['data']];   
+                        $selectorStr = $selectorStr." .".self::$Names['.'.$selector['data']];   
                         
                         break;
 
@@ -149,11 +149,11 @@ class Module
                             self::$Names['#'.$selector['data']] = $classNameHash;
                         }
     
-                        $selectorStr = $selectorStr."#".self::$Names['#'.$selector['data']];
+                        $selectorStr = $selectorStr." #".self::$Names['#'.$selector['data']];
                         break;
 
                     case 'HtmlElement':
-                        $selectorStr = $selectorStr.$selector['data'];
+                        $selectorStr = $selectorStr." ".$selector['data'];
                         break;
 
                     case 'Attr':
